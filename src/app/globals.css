@@ -15,9 +15,9 @@
 }
 
 body {
-  color: var(--forground);
+  color: var(--foreground);
   background: var(--background);
-  font-family: "游ゴシック体", YuGothic, "游ゴシック Medium", "Yu Gothic Medium", "游ゴシック", "Yu Gothic", sans-serif;
+  font-family: "Yu Gothic Medium", "YuGothic", "游ゴシック Medium", "游ゴシック", sans-serif;
 }
 
 @layer utilities {
@@ -29,7 +29,7 @@ body {
 nav {
   color: #ffffff;
   background: #736F80;
-  width: 15%;
+  width: 17%;
   height: 100%;
   padding-top: 0.5rem;
   left: 0;
@@ -37,11 +37,56 @@ nav {
   z-index: 1;
 }
 
-li{
-  padding: 5%;
-  font-size: 20px;
+li {
+  padding: 10%;
+  font-size: 23px;
 }
 
-.container{
-  padding-left: 15%;
+.date-list {
+  display: flex;
+}
+
+.date,
+.arrow {
+  display: inline-block;
+  padding: 5% 2% 0 2%;
+  font-size: 2rem; /* ← 調整 */
+}
+.arrow_open img{
+  display: inline-block;
+  transform: rotate(180deg);
+}
+
+.form {
+  padding: 0;
+  margin: 5%;
+  border: solid 3px rgba(176, 176, 205, 1);
+  font-size: 2rem; /* ← 調整 */
+}
+
+.label {
+  display: flex;
+  padding: 4%;
+}
+
+.tab {
+  padding: 1% 5% 1% 1%;
+  background-color: rgba(176, 176, 205, 1);
+  display: flex;
+  justify-content: flex-end;
+}
+
+.container {
+  padding-left: 20%;
+}
+
+.menu li {
+  padding: 0 0 1em 2em; /* 小さめの余白 */
+  font-size: 0.8em;
+  list-style: square;
+  list-style-position: inside;
+}
+
+.cal-sum {
+  margin-left: auto;
 }
