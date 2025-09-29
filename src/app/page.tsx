@@ -6,7 +6,6 @@ export default function Home() {
   return (
    <div className="container">
      <div>
-      <h2>2024年</h2>
       <Insert/>
      </div>
    </div>
