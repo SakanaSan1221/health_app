@@ -1,12 +1,12 @@
 import React from "react";
-import Insert from "./insert";
-import "./globals.css";
+import {MonthView} from "./month_view"
+import "../globals.css";
 
 export default function Home() {
   return (
    <div className="container">
      <div>
-      <Insert/>
+      <MonthView/>
      </div>
    </div>
   );

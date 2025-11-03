@@ -1,28 +1,39 @@
 "use client";  
 import React, { useState } from "react";
+import { useRouter } from "next/navigation";
+import ModalInsert from "./modal_insert";
 import Image from "next/image";
-import left from "../public/left_04.png";
-import right from "../public/right_04.png";
-import morning_sun from "../public/morning_sun.png";
-import sun from "../public/sun.png";
-import moon from "../public/moon.png";
-import under from "../public/under_04.png";
+import left from "../../public/left_04.png";
+import right from "../../public/right_04.png";
+import morning_sun from "../../public/morning_sun.png";
+import sun from "../../public/sun.png";
+import moon from "../../public/moon.png";
+import under from "../../public/under_04.png";
 
-export const Insert = () => {
-    const [open_bf,setOpen_bf] = useState(false);
-    const [open_ln,setOpen_ln] = useState(false);
-    const [open_dn,setOpen_dn] = useState(false);
+export const TodayInsert = () => {
+    const [state, setState] = useState({
+        open_bf: false,
+        open_ln: false,
+        open_dn: false,
+      });
+    const [showModal, setShowModal] = useState(false); 
+    const ShowModal = () => {
+        setShowModal(true);
+    };
     return (
         <>
         <ul className="date-list">
             <li className="arrow">
             <Image width={50} src={left} alt="左矢印" />
             </li>
-            <li className="date">2025年1月29日(火)</li>
+            <li className="date"><p>2025年1月29日(火)</p></li>
             <li className="arrow">
             <Image width={50} src={right} alt="右矢印" />
             </li>
         </ul>
+
+        <button className="fixed_btn" onClick={ShowModal}>登録</button>
+        <ModalInsert showFlag={showModal} setShowModal={setShowModal}/>
 
         <section className="form">  
                 <header className="label">
@@ -30,16 +41,16 @@ export const Insert = () => {
                     <h3>朝ごはん</h3>
                     <h3 className="cal-sum">999Kcal</h3>
                 </header>
-                {open_bf && (
+                {state.open_bf && (
                     <ul className="menu">
                         <li>sample</li>
-                            <li>sample</li>
+                        <li>sample</li>
                     </ul>
                 )}
                 <div className="tab">
                     <button 
-                        onClick={() => setOpen_bf(!open_bf)}
-                        className={open_bf? "arrow_open":"arow"}
+                        onClick={() => setState(prev => ({ ...prev, open_bf: !prev.open_bf }))}
+                        className={state.open_bf? "arrow_open":"arow"}
                     >
                         <Image width={40} src={under} alt="矢印"/>
                     </button>
@@ -52,7 +63,7 @@ export const Insert = () => {
                     <h3>昼ごはん</h3>
                     <h3 className="cal-sum">999Kcal</h3>
                 </header>
-                {open_ln && (
+                {state.open_ln && (
                     <ul className="menu">
                         <li>sample</li>
                         <li>sample</li>
@@ -60,8 +71,8 @@ export const Insert = () => {
                 )}
                 <div className="tab">
                     <button 
-                        onClick={() => setOpen_ln(!open_ln)}
-                        className={open_ln? "arrow_open":"arow"}
+                        onClick={() => setState(prev => ({ ...prev, open_ln: !prev.open_ln}))}
+                        className={state.open_ln? "arrow_open":"arow"}
                     >
                         <Image width={40} src={under} alt="矢印" />
                     </button>
@@ -73,7 +84,7 @@ export const Insert = () => {
                     <h3>夜ごはん</h3>
                     <h3 className="cal-sum">999Kcal</h3>
                 </header>
-                {open_dn && (
+                {state.open_dn && (
                     <ul className="menu">
                         <li>sample</li>
                         <li>sample</li>
@@ -81,8 +92,8 @@ export const Insert = () => {
                 )}
                 <div className="tab">
                     <button 
-                        onClick={() => setOpen_dn(!open_dn)}
-                        className={open_dn? "arrow_open":"arow"}
+                        onClick={() => setState(prev => ({ ...prev, open_dn: !prev.open_dn}))}
+                        className={state.open_dn? "arrow_open":"arow"}
                     >
                         <Image width={40} src={under} alt="矢印" />
                     </button>
@@ -92,4 +103,4 @@ export const Insert = () => {
     );
 };
 
-export default Insert;
+export default TodayInsert;

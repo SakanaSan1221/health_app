@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import React from "react";
-import Image from "next/image"
-import localImage from "../public/logo.png";
+import Navigation from "./nav";
+import Header from "./header";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -11,32 +11,17 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: Readonly<{ children: React.ReactNode; }>) {
   return (
     <html lang="ja">
       <body>
+        <header>
+          <Header/>
+        </header>
         <nav>
-          <ul>
-            <li>
-              <Image width={200} src={localImage} alt="ロゴ画像"/>
-            </li>
-            <li>
-              ダッシュボード
-            </li>
-            <li>
-              今日の記録
-            </li>
-            <li>
-              今月の記録
-            </li>
-            <li>
-              マスタ登録
-            </li>
-          </ul>
+          <Navigation/>
         </nav>
-        {children}
+          {children}
       </body>
     </html>
   );
